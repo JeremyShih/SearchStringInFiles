@@ -35,16 +35,16 @@
             this.txtPath = new System.Windows.Forms.TextBox();
             this.txtString = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.fileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastWriteTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultFileInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultFileInfoBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSearch
@@ -63,7 +63,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(57, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 40);
+            this.label1.Size = new System.Drawing.Size(119, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Folder Path";
             // 
@@ -71,35 +71,46 @@
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(15, 330);
+            this.progressBar1.Location = new System.Drawing.Point(15, 450);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1144, 59);
+            this.progressBar1.Size = new System.Drawing.Size(1053, 37);
             this.progressBar1.TabIndex = 2;
             // 
             // txtPath
             // 
             this.txtPath.Location = new System.Drawing.Point(271, 31);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(558, 50);
+            this.txtPath.Size = new System.Drawing.Size(558, 34);
             this.txtPath.TabIndex = 3;
             this.txtPath.Text = "\\\\vmware-host\\Shared Folders\\文件\\txt";
             // 
             // txtString
             // 
-            this.txtString.Location = new System.Drawing.Point(271, 100);
+            this.txtString.Location = new System.Drawing.Point(271, 73);
             this.txtString.Name = "txtString";
-            this.txtString.Size = new System.Drawing.Size(558, 50);
+            this.txtString.Size = new System.Drawing.Size(558, 34);
             this.txtString.TabIndex = 4;
             this.txtString.Text = "170011";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 103);
+            this.label2.Location = new System.Drawing.Point(57, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(212, 40);
+            this.label2.Size = new System.Drawing.Size(132, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "Target String";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.progressBar1);
+            this.panel1.Location = new System.Drawing.Point(12, 158);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1085, 499);
+            this.panel1.TabIndex = 7;
             // 
             // dataGridView1
             // 
@@ -118,7 +129,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 38;
-            this.dataGridView1.Size = new System.Drawing.Size(1144, 307);
+            this.dataGridView1.Size = new System.Drawing.Size(1053, 427);
             this.dataGridView1.TabIndex = 6;
             // 
             // fileNameDataGridViewTextBoxColumn
@@ -128,7 +139,7 @@
             this.fileNameDataGridViewTextBoxColumn.HeaderText = "檔名";
             this.fileNameDataGridViewTextBoxColumn.Name = "fileNameDataGridViewTextBoxColumn";
             this.fileNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fileNameDataGridViewTextBoxColumn.Width = 126;
+            this.fileNameDataGridViewTextBoxColumn.Width = 81;
             // 
             // lastWriteTimeDataGridViewTextBoxColumn
             // 
@@ -142,23 +153,12 @@
             // 
             this.resultFileInfoBindingSource.DataSource = typeof(SearchStringInFiles.Model.ResultFileInfo);
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.progressBar1);
-            this.panel1.Location = new System.Drawing.Point(12, 246);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1176, 411);
-            this.panel1.TabIndex = 7;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 174);
+            this.label3.Location = new System.Drawing.Point(57, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(195, 40);
+            this.label3.Size = new System.Drawing.Size(123, 25);
             this.label3.TabIndex = 8;
             this.label3.Text = "Time Range";
             // 
@@ -171,17 +171,17 @@
             "一周內",
             "兩周內",
             "一個月內"});
-            this.comboBox1.Location = new System.Drawing.Point(271, 174);
+            this.comboBox1.Location = new System.Drawing.Point(271, 117);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(558, 48);
+            this.comboBox1.Size = new System.Drawing.Size(558, 33);
             this.comboBox1.TabIndex = 9;
             // 
             // Form1
             // 
             this.AcceptButton = this.btnSearch;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 40F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 669);
+            this.ClientSize = new System.Drawing.Size(1109, 669);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
@@ -193,10 +193,10 @@
             this.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Search String in Files";
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultFileInfoBindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,13 +210,13 @@
         private System.Windows.Forms.TextBox txtPath;
         private System.Windows.Forms.TextBox txtString;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fileNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastWriteTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource resultFileInfoBindingSource;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastWriteTimeDataGridViewTextBoxColumn;
     }
 }
 

@@ -51,10 +51,6 @@ namespace SearchStringInFiles.Controller
 
             return res;
         }
-        public async Task TTT()
-        {
-            var task = await Task.Run<int>(()=> { return 0; });
-        }
         public async Task<List<string>> FindStringAsync(List<string> fileList, IProgress<int> progress, string targetString)
         {
             List<string> result = new List<string>();
@@ -71,7 +67,7 @@ namespace SearchStringInFiles.Controller
                     }
                     if (progress != null)
                     {
-                        progress.Report((tempCount * 100 / totalCount));
+                        progress.Report(tempCount + 1);
                     }
                     tempCount++;
                 }
@@ -84,43 +80,23 @@ namespace SearchStringInFiles.Controller
         {
             using (StreamReader sr = new StreamReader(filePath))
             {
-                while (true)
+                string line = sr.ReadLine();
+                do
                 {
-                    string line = sr.ReadLine();
-                    if (!string.IsNullOrEmpty(line))
-                    {
-                        if (line.Contains(targetString))
-                        {
-                            return true;
-                        }
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
+                    if (line.Contains(targetString))
+                        return true;
+                    line = sr.ReadLine();
+                } while (!string.IsNullOrEmpty(line));
             }
             return false;
-
         }
         private bool findString(string filePath, string targetString)
         {
-            try
-            {
-                string content = File.ReadAllText(filePath);
-                if (content.Contains(targetString))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message, ex);
-            }
+            string content = File.ReadAllText(filePath);
+            if (content.Contains(targetString))
+                return true;
+            else
+                return false;
         }
         public BindingList<ResultFileInfo> GetFileInfoList(string[] filePaths)
         {
@@ -171,7 +147,6 @@ namespace SearchStringInFiles.Controller
             foreach (string filePath in files)
             {
                 if (await Task.Run(() => InTimeRange(filePath, tr)))
-                //if (InTimeRange(filePath, tr))
                 {
                     result.Add(filePath);
                 }
@@ -185,9 +160,7 @@ namespace SearchStringInFiles.Controller
             foreach (string filePath in files)
             {
                 if (InTimeRange(filePath, tr))
-                {
                     result.Add(filePath);
-                }
             }
             return result;
         }

@@ -73,6 +73,9 @@ namespace SearchStringInFiles
 
             // 這個方法會等這一行做完再繼續後面的動作，等待期間UI不會鎖死
             // 每完成一個檔案的檢查，都會更新progressBar的進度
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = files.Count;
+            progressBar1.Value = 0;
             List<string> result = await ctrl.FindStringAsync(files,
                 new Progress<int>(precent => progressBar1.Value = precent), targetString);
 
@@ -82,8 +85,8 @@ namespace SearchStringInFiles
             // 搜尋完成跳出訊息視窗
             DateTime finishTime = DateTime.Now;
             double spent = finishTime.Subtract(startTime).TotalSeconds;
-            Finish();
             MessageBox.Show("搜尋完成，找到" + result.Count + "個檔案\n花費" + spent.ToString("F2") + "秒");
+            Finish();
             WriteLog(result.Count, spent);
         }
         private BindingList<ResultFileInfo> _resultFileInfos;
