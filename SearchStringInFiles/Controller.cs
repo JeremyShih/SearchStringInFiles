@@ -54,9 +54,8 @@ namespace SearchStringInFiles.Controller
         public async Task<List<string>> FindStringAsync(List<string> fileList, IProgress<int> progress, string targetString)
         {
             List<string> result = new List<string>();
-            int totalCount = fileList.Count;
             //await the processing and searching logic here
-            int processCount = await Task.Run(() =>
+            await Task.Run(() =>
             {
                 int tempCount = 0;
                 foreach (var filePath in fileList)
@@ -174,7 +173,7 @@ namespace SearchStringInFiles.Controller
         {
             switch (timeSpan)
             {
-                case "所有檔案":
+                default:
                     return TimeRange.All;
                 case "一周內":
                     return TimeRange.OneWeek;
@@ -182,8 +181,6 @@ namespace SearchStringInFiles.Controller
                     return TimeRange.TwoWeek;
                 case "一個月內":
                     return TimeRange.OneMonth;
-                default:
-                    goto case "所有檔案";
             }
         }
 

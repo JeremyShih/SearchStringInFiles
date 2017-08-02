@@ -6,8 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,7 +26,6 @@ namespace SearchStringInFiles
         private void Start()
         {
             btnSearch.Enabled = false;
-            //progressBar1.Style = ProgressBarStyle.Marquee;
             ctrl.SaveSettings(folderPath, targetString);
         }
         private void Finish()
@@ -45,29 +42,24 @@ namespace SearchStringInFiles
             folderPath = txtPath.Text;
             targetString = txtString.Text;
             timeSpan = ctrl.SetTimeSpan(comboBox1.Text);
-            try
+            if (string.IsNullOrEmpty(targetString) || string.IsNullOrEmpty(folderPath))
             {
-                if (string.IsNullOrEmpty(targetString) || string.IsNullOrEmpty(folderPath))
-                {
-                    throw new Exception("請輸入字串或指定資料夾路徑");
-                }
-                if (!Directory.Exists(folderPath))
-                {
-                    throw new Exception("指定資料夾不存在");
-                }
+                MessageBox.Show("請輸入字串或指定資料夾路徑");
+                return;
             }
-            catch(Exception ex)
+            if (!Directory.Exists(folderPath))
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("指定資料夾不存在");
+                return;
             }
+
             Start();
             DateTime startTime = DateTime.Now;
-            List<string> files = new List<string>();
+            List<string> files;
 
             progressBar1.Style = ProgressBarStyle.Marquee;
             // 等待第一個await處理完後，會更新UI，再繼續後面的程式碼
             files = await Task.Run(() => ctrl.FilesInTimeRange(folderPath, timeSpan));
-            //files = await ctrl.FilesInTimeRangeAsync(folderPath, timeSpan);
             btnSearch.Text = "搜尋" + files.Count + "個檔案中";
             progressBar1.Style = ProgressBarStyle.Blocks;
 
@@ -104,9 +96,9 @@ namespace SearchStringInFiles
                 txtString.Text = Settings.Default.TargetString;
             }
         }
-        private void WriteLog(int found,double timeSpent)
+        private void WriteLog(int found, double timeSpent)
         {
-            using (StreamWriter sw = File.AppendText(@"\\vmware-host\Shared Folders\文件\SearchStringLog.txt"))
+            using (StreamWriter sw = File.AppendText(@"D:\000000\SearchStringLog.txt"))
             {
                 string msg = string.Format("{0}  搜尋位置\"{1}\" 搜尋字串\"{2}\"", DateTime.Now, folderPath, targetString);
                 sw.WriteLine(msg);
