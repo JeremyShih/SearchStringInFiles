@@ -110,6 +110,7 @@ namespace SearchStringInFiles
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            Clipboard.SetText(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
             if (e.ColumnIndex == 0)
             {
                 string filePath = string.Format(@"{0}\{1}", txtPath.Text, dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
