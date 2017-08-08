@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -37,11 +38,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.fileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastWriteTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultFileInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resultFileInfoBindingSource)).BeginInit();
@@ -131,27 +132,7 @@
             this.dataGridView1.RowTemplate.Height = 38;
             this.dataGridView1.Size = new System.Drawing.Size(1053, 427);
             this.dataGridView1.TabIndex = 6;
-            // 
-            // fileNameDataGridViewTextBoxColumn
-            // 
-            this.fileNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.fileNameDataGridViewTextBoxColumn.DataPropertyName = "FileName";
-            this.fileNameDataGridViewTextBoxColumn.HeaderText = "檔名";
-            this.fileNameDataGridViewTextBoxColumn.Name = "fileNameDataGridViewTextBoxColumn";
-            this.fileNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fileNameDataGridViewTextBoxColumn.Width = 81;
-            // 
-            // lastWriteTimeDataGridViewTextBoxColumn
-            // 
-            this.lastWriteTimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.lastWriteTimeDataGridViewTextBoxColumn.DataPropertyName = "LastWriteTime";
-            this.lastWriteTimeDataGridViewTextBoxColumn.HeaderText = "修改日期";
-            this.lastWriteTimeDataGridViewTextBoxColumn.Name = "lastWriteTimeDataGridViewTextBoxColumn";
-            this.lastWriteTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // resultFileInfoBindingSource
-            // 
-            this.resultFileInfoBindingSource.DataSource = typeof(SearchStringInFiles.Model.ResultFileInfo);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // label3
             // 
@@ -176,6 +157,27 @@
             this.comboBox1.Size = new System.Drawing.Size(558, 33);
             this.comboBox1.TabIndex = 9;
             // 
+            // fileNameDataGridViewTextBoxColumn
+            // 
+            this.fileNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.fileNameDataGridViewTextBoxColumn.DataPropertyName = "FileName";
+            this.fileNameDataGridViewTextBoxColumn.HeaderText = "檔名";
+            this.fileNameDataGridViewTextBoxColumn.Name = "fileNameDataGridViewTextBoxColumn";
+            this.fileNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fileNameDataGridViewTextBoxColumn.Width = 81;
+            // 
+            // lastWriteTimeDataGridViewTextBoxColumn
+            // 
+            this.lastWriteTimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.lastWriteTimeDataGridViewTextBoxColumn.DataPropertyName = "LastWriteTime";
+            this.lastWriteTimeDataGridViewTextBoxColumn.HeaderText = "修改日期";
+            this.lastWriteTimeDataGridViewTextBoxColumn.Name = "lastWriteTimeDataGridViewTextBoxColumn";
+            this.lastWriteTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // resultFileInfoBindingSource
+            // 
+            this.resultFileInfoBindingSource.DataSource = typeof(SearchStringInFiles.Model.ResultFileInfo);
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnSearch;
@@ -191,6 +193,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSearch);
             this.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Search String in Files";

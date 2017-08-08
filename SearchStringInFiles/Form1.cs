@@ -5,6 +5,7 @@ using SearchStringInFiles.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -104,6 +105,17 @@ namespace SearchStringInFiles
                 sw.WriteLine(msg);
                 msg = string.Format("    找到{0}個檔案 花費{1}秒", found, timeSpent.ToString("F2"));
                 sw.WriteLine(msg);
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                string filePath = string.Format(@"{0}\{1}", txtPath.Text, dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                string argument = "/select, \"" + filePath + "\"";
+
+                Process.Start("explorer.exe", argument);
             }
         }
         // https://stackoverflow.com/questions/19980112/how-to-do-progress-reporting-using-async-await

@@ -6,6 +6,7 @@ using System.IO;
 using SearchStringInFiles.Enum;
 using SearchStringInFiles.Properties;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace SearchStringInFiles.Controller
 {
@@ -54,7 +55,7 @@ namespace SearchStringInFiles.Controller
         public async Task<List<string>> FindStringAsync(List<string> fileList, IProgress<int> progress, string targetString)
         {
             List<string> result = new List<string>();
-            //await the processing and searching logic here
+            // await the processing and searching logic here
             await Task.Run(() =>
             {
                 int tempCount = 0;
@@ -155,13 +156,8 @@ namespace SearchStringInFiles.Controller
         public List<string> FilesInTimeRange(string folderPath, TimeRange tr)
         {
             string[] files = Directory.GetFiles(folderPath);
-            List<string> result = new List<string>();
-            foreach (string filePath in files)
-            {
-                if (InTimeRange(filePath, tr))
-                    result.Add(filePath);
-            }
-            return result;
+            var result = from path in files where InTimeRange(path, tr) select path;
+            return result.ToList();
         }
         public void SaveSettings(string folderPath, string targetString)
         {
