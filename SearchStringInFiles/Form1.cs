@@ -119,6 +119,18 @@ namespace SearchStringInFiles
                 Process.Start("explorer.exe", argument);
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Please select one folder";
+            fbd.ShowNewFolderButton = false;
+            fbd.RootFolder = Environment.SpecialFolder.MyComputer;
+
+            if (fbd.ShowDialog() == DialogResult.Cancel)
+                return;
+            txtPath.Text = fbd.SelectedPath;
+        }
         // https://stackoverflow.com/questions/19980112/how-to-do-progress-reporting-using-async-await
     }
 }

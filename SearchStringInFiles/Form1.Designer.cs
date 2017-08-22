@@ -40,6 +40,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.fileNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastWriteTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultFileInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -81,7 +82,7 @@
             // 
             this.txtPath.Location = new System.Drawing.Point(271, 31);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(558, 34);
+            this.txtPath.Size = new System.Drawing.Size(506, 34);
             this.txtPath.TabIndex = 3;
             this.txtPath.Text = "\\\\vmware-host\\Shared Folders\\文件\\txt";
             // 
@@ -157,6 +158,16 @@
             this.comboBox1.Size = new System.Drawing.Size(558, 33);
             this.comboBox1.TabIndex = 9;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(784, 29);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 34);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // fileNameDataGridViewTextBoxColumn
             // 
             this.fileNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -184,6 +195,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 669);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
@@ -220,6 +232,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fileNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastWriteTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button1;
     }
 }
 
