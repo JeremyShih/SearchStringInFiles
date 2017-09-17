@@ -1,12 +1,6 @@
 ﻿using NUnit.Framework;
-using SearchStringInFiles.Controller;
 using SearchStringInFiles.Enum;
 using SearchStringInFilesTests.Stub;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SearchStringInFiles.Controller.Tests
 {
