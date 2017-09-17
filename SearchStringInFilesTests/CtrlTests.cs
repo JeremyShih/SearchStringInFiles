@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SearchStringInFiles.Controller;
+using SearchStringInFiles.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,13 @@ namespace SearchStringInFiles.Controller.Tests
         [Test()]
         public void InTimeRangeTest()
         {
+            string filePath = @"";
+            TimeRange tr = TimeRange.All;
+            var expected = true;
 
-            Assert.Fail();
+            var actual = ctrl.InTimeRange(filePath, tr);
+
+            Assert.AreEqual(expected, actual);
         }
     }
 }
