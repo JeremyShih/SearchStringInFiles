@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using SearchStringInFiles.Controller;
+using NUnit.Framework;
 using SearchStringInFiles.Enum;
 using SearchStringInFilesTests.Stub;
 
@@ -19,12 +20,25 @@ namespace SearchStringInFiles.Controller.Tests
 
             Assert.AreEqual(expected, actual);
         }
-        
+
         [Test()]
         public void InTimeRangeTest_TimeRangeOneMonth()
         {
             string filePath = @"";
             TimeRange tr = TimeRange.OneMonth;
+            var expected = true;
+
+            ctrl = new CtrlStub();
+            var actual = ctrl.InTimeRange(filePath, tr);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test()]
+        public void InTimeRangeTest_TimeRangeTwoWeeks()
+        {
+            string filePath = @"";
+            TimeRange tr = TimeRange.TwoWeek;
             var expected = true;
 
             ctrl = new CtrlStub();

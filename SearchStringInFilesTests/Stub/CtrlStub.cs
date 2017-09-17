@@ -9,7 +9,7 @@ namespace SearchStringInFilesTests.Stub
         public override DateTime GetFileTime(string filePath)
         {
             if (!File.Exists(filePath))
-                return DateTime.Now;
+                return DateTime.Now.AddDays(-7);
             return base.GetFileTime(filePath);
         }
     }
