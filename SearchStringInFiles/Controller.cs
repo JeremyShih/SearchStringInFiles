@@ -116,6 +116,10 @@ namespace SearchStringInFiles.Controller
 #endif
             return retStr;
         }
+        public virtual DateTime GetFileTime(string filePath)
+        {
+            return File.GetLastWriteTime(filePath);
+        }
         public bool InTimeRange(string filePath, TimeRange tr)
         {
             if (tr == TimeRange.All)
@@ -123,7 +127,7 @@ namespace SearchStringInFiles.Controller
                 return true;
             }
             DateTime today = DateTime.Now;
-            DateTime file = File.GetLastWriteTime(filePath);
+            DateTime file = GetFileTime(filePath);
             double timeRange = today.Subtract(file).TotalDays;
 
             switch (tr)
